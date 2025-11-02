@@ -8,11 +8,11 @@ from dataset import create_dataloaders
 import os
 from model_lstm import ImprovedLSTMForecast
 
-# 解决 Matplotlib 中文显示问题
+# ... (中文字体设置代码 保持不变) ...
 try:
     plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'PingFang SC', 'Source Han Sans SC',
                                        'WenQuanYi Micro Hei']
-    plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+    plt.rcParams['axes.unicode_minus'] = False
     print("✅ 已设置中文字体。")
 except Exception as e:
     print(f"⚠️ 设置中文字体失败: {e}。图表中的中文可能显示为方框。")
@@ -20,14 +20,13 @@ except Exception as e:
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 print("Using device:", DEVICE)
 
-# 🔴 定义超参数 (必须与训练时一致)
+# 保持最佳参数
 HISTORY_LEN = 144
 PRED_LEN = 6
 BATCH_SIZE = 32
-HIDDEN_SIZE = 128  # 🔴 回滚：必须与训练时的模型架构一致
+HIDDEN_SIZE = 128
 
 
-# ... (check_model_files, calculate_metrics, plot_predictions 函数保持不变) ...
 def check_model_files():
     model_path = "../models/best_lstm_improved.pth"
     if os.path.exists(model_path):
@@ -39,6 +38,7 @@ def check_model_files():
 
 
 def calculate_metrics(y_true, y_pred):
+    # 确保 y_true 和 y_pred 已经是“原始空间”的值
     mae = np.mean(np.abs(y_true - y_pred))
     rmse = np.sqrt(np.mean((y_true - y_pred) ** 2))
     mape = np.mean(np.abs((y_true - y_pred) / (np.abs(y_true) + 1e-8))) * 100
@@ -50,6 +50,7 @@ def calculate_metrics(y_true, y_pred):
 
 
 def plot_predictions(yb_true, yb_pred, pred_len=6):
+    # 确保 yb_true 和 yb_pred 已经是“原始空间”的值
     plt.figure(figsize=(18, 12))
 
     plt.subplot(2, 2, 1)
@@ -96,7 +97,7 @@ def plot_predictions(yb_true, yb_pred, pred_len=6):
     plt.grid(True, axis='y', alpha=0.3)
 
     plt.tight_layout()
-    plt.savefig("../experiments/prediction_results2.png")
+    plt.savefig("../experiments/prediction_results3.png")
     print("✅ 预测结果图已保存。")
 
 
@@ -108,7 +109,7 @@ def predict_fixed():
         print("❌ 没有找到模型文件，请先训练模型")
         return
 
-    print("加载数据 (已简化特征)...")
+    print("加载数据 (应用对数变换)...")
     X_traffic, X_time, y, traffic_scaler, time_scaler, traffic_feat_dim, time_feat_dim = load_and_preprocess(
         "../data/milano_traffic_nid.csv",
         "../experiments/traffic_scaler.pkl",
@@ -124,7 +125,6 @@ def predict_fixed():
     )
     print(f"评估数据 (验证集) 加载成功: {len(val_loader)} batches")
 
-    # 🔴 回滚：初始化模型时使用 HIDDEN_SIZE=128
     model = ImprovedLSTMForecast(
         traffic_feat_dim=traffic_feat_dim,
         time_feat_dim=time_feat_dim,
@@ -140,11 +140,8 @@ def predict_fixed():
         print("✅ 模型权重加载成功!")
     except Exception as e:
         print(f"❌ 模型权重加载失败: {e}")
-        print("这通常是因为模型架构与保存的权重不匹配。")
-        print(f"请确保模型已使用 hidden_size={HIDDEN_SIZE} 进行初始化。")
         return
 
-    # ... (预测和评估循环代码保持不变) ...
     model.eval()
     all_preds = []
     all_trues = []
@@ -156,11 +153,17 @@ def predict_fixed():
 
             pred = model(xb_traffic, xb_time)
 
-            yb_true_orig = traffic_scaler.inverse_transform(yb.numpy().reshape(-1, num_stations))
-            yb_pred_orig = traffic_scaler.inverse_transform(pred.cpu().numpy().reshape(-1, num_stations))
+            # 🔴 关键修改 1：反归一化 (得到对数值)
+            yb_true_log = traffic_scaler.inverse_transform(yb.numpy().reshape(-1, num_stations))
+            yb_pred_log = traffic_scaler.inverse_transform(pred.cpu().numpy().reshape(-1, num_stations))
 
-            yb_true_orig = yb_true_orig.reshape(-1, PRED_LEN, num_stations)
-            yb_pred_orig = yb_pred_orig.reshape(-1, PRED_LEN, num_stations)
+            # 🔴 关键修改 2：应用 np.expm1 还原到原始空间
+            yb_true_orig = np.expm1(yb_true_log.reshape(-1, PRED_LEN, num_stations))
+            yb_pred_orig = np.expm1(yb_pred_log.reshape(-1, PRED_LEN, num_stations))
+
+            # 确保非负
+            yb_true_orig[yb_true_orig < 0] = 0
+            yb_pred_orig[yb_pred_orig < 0] = 0
 
             all_trues.append(yb_true_orig)
             all_preds.append(yb_pred_orig)

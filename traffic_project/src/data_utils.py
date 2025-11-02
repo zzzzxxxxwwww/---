@@ -7,14 +7,8 @@ import joblib
 import traceback
 
 
-# 🔴 移除：不再需要 detect_and_smooth_outliers 函数
-# ...
-
-# 🔴 移除：不再需要 add_traffic_features 函数，让LSTM自己学习
-# def add_traffic_features(df):
-#    ... (函数体已删除) ...
-
-
+# ... 移除 add_traffic_features ...
+# ... add_time_features 保持不变 ...
 def add_time_features(df):
     """添加时间相关特征 (基于索引)"""
     df_time = pd.DataFrame(index=df.index)
@@ -31,7 +25,6 @@ def add_time_features(df):
         df_time['day_sin'] = np.sin(2 * np.pi * df_time['dayofweek'] / 7)
         df_time['day_cos'] = np.cos(2 * np.pi * df_time['dayofweek'] / 7)
 
-        # 移除原始的 'hour', 'dayofweek', 'month'，只保留编码后的
         df_time = df_time.drop(columns=['hour', 'dayofweek', 'month'])
 
     return df_time
@@ -44,59 +37,48 @@ def load_and_preprocess(csv_path, traffic_scaler_path="../experiments/traffic_sc
         df = pd.read_csv(csv_path)
 
         if 'Unnamed: 0' in df.columns:
-            print("检测到时间索引列 'Unnamed: 0'")
             df.rename(columns={'Unnamed: 0': 'datetime'}, inplace=True)
-
         if 'datetime' in df.columns:
-            print("设置时间索引...")
             df['datetime'] = pd.to_datetime(df['datetime'])
             df.set_index('datetime', inplace=True)
-            print(f"时间范围: {df.index.min()} 到 {df.index.max()}")
         else:
             raise ValueError("CSV文件中缺少时间列（需包含'datetime'或'Unnamed: 0'列）")
 
         numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
         print(f"找到 {len(numeric_cols)} 个原始交通流量列")
 
-        if len(numeric_cols) == 0:
-            raise ValueError("读取的数据中没有有效数值列")
-
         df_numeric = df[numeric_cols].replace([np.inf, -np.inf], np.nan).fillna(0)
 
-        # 🔴 移除：异常值检测和平滑处理
+        # 🔴 关键修改 1：应用对数变换 (Log-Transform)
+        # 使用 np.log1p 来处理 0 值 (log(1+x))
+        print("正在对交通数据应用对数变换 (np.log1p)...")
+        df_numeric = np.log1p(df_numeric)
+
+        # 移除异常值平滑
         df_smoothed = df_numeric
 
-        print("数据基本信息:")
-        print(f"数据形状: {df_smoothed.shape}")
+        print(f"数据形状 (对数空间): {df_smoothed.shape}")
+        print(f"数据范围 (对数空间): {df_smoothed.min().min():.2f} - {df_smoothed.max().max():.2f}")
 
-        # 🔴 移除：不再调用 add_traffic_features
-        # print("添加交通流量特征工程...")
-        # df_traffic_features = add_traffic_features(df_smoothed)
-
+        # 添加时间特征
         print("添加时间特征...")
-        df_time_features = add_time_features(df_smoothed)  # 传入 df_smoothed 以使用其索引
+        df_time_features = add_time_features(df_smoothed)
 
-        # 分离特征
-        original_traffic_cols = numeric_cols  # 原始交通流量列 (88个)
-        # engineered_traffic_cols = df_traffic_features.columns.tolist() # 🔴 已移除
-        time_feature_cols = df_time_features.columns.tolist()  # 纯时间特征
+        original_traffic_cols = numeric_cols
+        time_feature_cols = df_time_features.columns.tolist()
+        print(f"原始交通特征: {len(original_traffic_cols)} 个")
+        print(f"时间特征: {len(time_feature_cols)} 个")
 
-        print(f"原始交通特征 (用于缩放和预测): {len(original_traffic_cols)} 个")
-        # print(f"工程交通特征 (作为时间特征输入): {len(engineered_traffic_cols)} 个") # 🔴 已移除
-        print(f"时间特征 (作为时间特征输入): {len(time_feature_cols)} 个")
-
-        # 对原始交通特征归一化 (Scaler 1)
-        print("对原始交通特征归一化...")
+        # 🔴 关键修改 2：Scaler 现在拟合的是“对数变换后”的数据
+        print("对“对数变换后”的交通特征归一化...")
         traffic_scaler = RobustScaler(quantile_range=(5, 95))
         scaled_traffic_values = traffic_scaler.fit_transform(df_smoothed[original_traffic_cols].values)
         df_scaled_traffic = pd.DataFrame(scaled_traffic_values, columns=original_traffic_cols, index=df_smoothed.index)
 
-        # 🔴 修改：只合并纯时间特征
+        # 对时间特征归一化
+        print("对时间特征归一化...")
         all_time_features_cols = time_feature_cols
         df_all_time_features = df_time_features
-
-        # 对所有“时间类”特征归一化 (Scaler 2)
-        print("对所有时间类特征归一化...")
         time_scaler = RobustScaler(quantile_range=(5, 95))
 
         if not df_all_time_features.empty:
@@ -114,11 +96,10 @@ def load_and_preprocess(csv_path, traffic_scaler_path="../experiments/traffic_sc
         print(f"✅ 保存交通特征scaler到: {traffic_scaler_path}")
         print(f"✅ 保存时间特征scaler到: {time_scaler_path}")
 
-        # ... (后续的滑动窗口代码保持不变) ...
-
+        # ... (滑动窗口代码保持不变) ...
         X_list, y_list = [], []
         valid_indices = 0
-        traffic_feat_dim = len(original_traffic_cols)  # 原始交通特征维度
+        traffic_feat_dim = len(original_traffic_cols)
 
         print(f"✅ 交通特征数 (X_traffic): {traffic_feat_dim}, 时间特征数 (X_time): {time_feat_dim}")
 
@@ -154,9 +135,6 @@ def load_and_preprocess(csv_path, traffic_scaler_path="../experiments/traffic_sc
         print(f"✅ 有效样本数量: {valid_indices}")
         print(f"✅ X_traffic形状: {X_traffic.shape}, X_time形状: {X_time.shape}, y形状: {y.shape}")
 
-        # 🔴 关键：time_feat_dim 必须返回正确的维度
-        # 如果 time_feat_dim 为 0，但 X_time 是 (N, 144, 1) 的 0 填充
-        # 我们需要返回 1，否则模型 time_emb 层会出错
         final_time_feat_dim = X_time.shape[2]
         print(f"✅ 最终返回的时间特征维度: {final_time_feat_dim}")
 
