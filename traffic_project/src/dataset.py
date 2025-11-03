@@ -25,6 +25,7 @@ def create_dataloaders(X_traffic, X_time, y, batch_size=32, split_ratio=0.8):
     train_dataset = TrafficDataset(X_traffic[:split], X_time[:split], y[:split])
     test_dataset = TrafficDataset(X_traffic[split:], X_time[split:], y[split:])
 
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
-    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=2)
+    # 设置 num_workers=0 避免多进程内存问题
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
     return train_loader, test_loader

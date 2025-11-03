@@ -25,7 +25,7 @@ print("Using device:", DEVICE)
 # TCN 的参数
 HISTORY_LEN = 144
 PRED_LEN = 6
-BATCH_SIZE = 32
+BATCH_SIZE = 16
 EPOCHS = 50
 LEARNING_RATE = 1e-3  # 🔴 TCN 对学习率更敏感，我们用 1e-3 开始
 WEIGHT_DECAY = 1e-4
@@ -41,6 +41,9 @@ def calculate_mape(y_t, y_p):
 
 def train_tcn():
     try:
+        # 清理GPU内存
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
         print("正在加载数据 (应用对数变换)...")
         X_traffic, X_time, y, traffic_scaler, time_scaler, traffic_feat_dim, time_feat_dim = load_and_preprocess(
             "../data/milano_traffic_nid.csv",
