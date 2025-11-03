@@ -100,7 +100,7 @@ def plot_predictions(yb_true, yb_pred, pred_len=6):
     plt.grid(True, axis='y', alpha=0.3)
 
     plt.tight_layout()
-    plt.savefig("../experiments/prediction_results_tcn.png")  # 🔴 保存为新图片
+    plt.savefig("../experiments/prediction_results_tcn1.png")  # 🔴 保存为新图片
     print("✅ TCN 预测结果图已保存。")
 
 

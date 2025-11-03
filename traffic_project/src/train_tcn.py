@@ -25,7 +25,7 @@ print("Using device:", DEVICE)
 # TCN 的参数
 HISTORY_LEN = 144
 PRED_LEN = 6
-BATCH_SIZE = 16
+BATCH_SIZE = 32
 EPOCHS = 50
 LEARNING_RATE = 1e-3  # 🔴 TCN 对学习率更敏感，我们用 1e-3 开始
 WEIGHT_DECAY = 1e-4
@@ -200,7 +200,7 @@ def train_tcn():
         plt.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig("../experiments/training_results_tcn.png")  # 🔴 保存为新图片
+        plt.savefig("../experiments/training_results_tcn1.png")  # 🔴 保存为新图片
         print("✅ TCN 训练结果图已保存。")
 
     except Exception as e:
