@@ -31,8 +31,10 @@ LEARNING_RATE = 1e-3  # 🔴 TCN 对学习率更敏感，我们用 1e-3 开始
 WEIGHT_DECAY = 1e-4
 KERNEL_SIZE = 3  # TCN 卷积核大小
 DROPOUT = 0.3
-# TCN 层级和通道数，例如 4 层，每层 128 通道
-TCN_CHANNELS = [128, 128, 128, 128]
+# TCN 层级和通道数，例如 4 层，每层 128 通道,修改为七层，为了匹配感受野与历史长度
+TCN_CHANNELS = [128, 128, 128, 128, 128, 128, 128 ]
+# TCN_CHANNELS = [128, 128, 128, 128 ]
+
 
 
 def calculate_mape(y_t, y_p):
@@ -200,7 +202,7 @@ def train_tcn():
         plt.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig("../experiments/training_results_tcn1.png")  # 🔴 保存为新图片
+        plt.savefig("../experiments/training_results_tcn2.png")  # 🔴 保存为新图片
         print("✅ TCN 训练结果图已保存。")
 
     except Exception as e:
