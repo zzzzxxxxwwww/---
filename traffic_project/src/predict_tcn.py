@@ -57,7 +57,7 @@ def plot_predictions(yb_true, yb_pred, pred_len=6):
     plt.figure(figsize=(18, 12))
 
     plt.subplot(2, 2, 1)
-    station_idx = 0
+    station_idx = 80     #选择站点
     step_idx = 0
     plt.plot(yb_true[:100, step_idx, station_idx], label="Actual", linewidth=2)
     plt.plot(yb_pred[:100, step_idx, station_idx], label="Predicted", linewidth=2, linestyle="--")
@@ -100,7 +100,7 @@ def plot_predictions(yb_true, yb_pred, pred_len=6):
     plt.grid(True, axis='y', alpha=0.3)
 
     plt.tight_layout()
-    plt.savefig("../experiments/prediction_results_tcn1.png")  # 🔴 保存为新图片
+    plt.savefig("../experiments/prediction_results_tcn1-80.png")  # 🔴 保存为新图片
     print("✅ TCN 预测结果图已保存。")
 
 
