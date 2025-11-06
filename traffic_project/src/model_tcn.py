@@ -80,7 +80,7 @@ class TCNForecast(nn.Module):
     """
 
     def __init__(self, traffic_feat_dim, time_feat_dim, num_stations,
-                 num_channels=[128, 128, 128, 128], kernel_size=3, dropout=0.3, pred_len=1):
+                 num_channels=[128, 128, 128, 128, 128, 128, 128], kernel_size=3, dropout=0.3, pred_len=1):
         super(TCNForecast, self).__init__()
         self.pred_len = pred_len
         self.num_stations = num_stations
@@ -122,12 +122,19 @@ class TCNForecast(nn.Module):
         # TCN 网络的最终输出通道数是 num_channels[-1]
         self.last_channel_size = num_channels[-1]
 
+        # 1.修改移除 'output_layers' 中的大型 MLP
         # 我们用一个线性层来处理 TCN 的最后一个时间步的输出
-        self.output_layers = nn.Sequential(
-            nn.Linear(self.last_channel_size, 128),
-            nn.ReLU(),
-            nn.Dropout(dropout),
-            nn.Linear(128, pred_len * num_stations)
+        # self.output_layers = nn.Sequential(
+        #     nn.Linear(self.last_channel_size, 128),
+        #     nn.ReLU(),
+        #     nn.Dropout(dropout),
+        #     nn.Linear(128, pred_len * num_stations)
+        #
+        # 2. 替换为一个 1x1 卷积层
+        self.output_conv = nn.Conv1d(
+            self.last_channel_size,  # TCN 最后一层的通道数
+            pred_len * num_stations,  # 目标输出通道数
+            kernel_size=1
         )
 
     def forward(self, traffic_x, time_x):
@@ -147,12 +154,20 @@ class TCNForecast(nn.Module):
         # 4. 通过 TCN 网络
         tcn_out = self.tcn_network(x)  # (batch, channels_out, seq_len)
 
-        # 5. 🔴 关键：我们只取最后一个时间步的输出 (:, :, -1)
-        #    来代表 TCN 对整个历史的"总结"
-        tcn_last_step = tcn_out[:, :, -1]  # (batch, channels_out)
+        # # 5. 🔴 关键：我们只取最后一个时间步的输出 (:, :, -1)
+        # #    来代表 TCN 对整个历史的"总结"
+        # tcn_last_step = tcn_out[:, :, -1]  # (batch, channels_out)
+        #
+        # # 6. 通过输出层
+        # pred = self.output_layers(tcn_last_step)  # (batch, pred_len * num_stations)
 
-        # 6. 通过输出层
-        pred = self.output_layers(tcn_last_step)  # (batch, pred_len * num_stations)
+        # 5. [!!! 关键修改 !!!]
+        #    不再只取最后一步，而是将整个序列送入 1x1 卷积
+        pred_seq = self.output_conv(tcn_out)  # (batch, pred_len * num_stations, seq_len)
+
+        # 6. [!!! 关键修改 !!!]
+        #    现在，我们只取这个新序列的最后一个时间步
+        pred = pred_seq[:, :, -1]  # (batch, pred_len * num_stations)
 
         # 7. 重塑形状以匹配 y (target)
         pred = pred.view(-1, self.pred_len, self.num_stations)  # (batch, pred_len, num_stations)
