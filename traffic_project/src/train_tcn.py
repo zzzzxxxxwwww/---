@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import os
 import numpy as np
 from torch.optim.lr_scheduler import ReduceLROnPlateau
+import random # [!!! 1. 新增导入 !!!]
 
 # ... (中文字体设置代码 保持不变) ...
 try:
@@ -19,8 +20,35 @@ try:
 except Exception as e:
     print(f"⚠️ 设置中文字体失败: {e}。图表中的中文可能显示为方框。")
 
+# # [!!! 2. 新增：可复现性设置 !!!]
+# SEED = 42
+#
+# def set_seed(seed):
+#     """设置所有随机种子以保证可复现性"""
+#     random.seed(seed)
+#     os.environ['PYTHONHASHSEED'] = str(seed)
+#     np.random.seed(seed)
+#     torch.manual_seed(seed)
+#     if torch.cuda.is_available():
+#         torch.cuda.manual_seed_all(seed)
+#     # 强制 PyTorch 使用确定性的 cuDNN 算法
+#     torch.backends.cudnn.deterministic = True
+#     # 禁用 cuDNN 自动调优，它会引入随机性
+#     torch.backends.cudnn.benchmark = False
+#     print(f"✅ 所有随机种子已设置为: {seed}")
+#
+# set_seed(SEED)
+# # [!!! 结束修改 !!!]
+
+
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 print("Using device:", DEVICE)
+
+# [!!! 关键：确保 TCN 训练速度最快 !!!]
+if torch.cuda.is_available():
+    torch.backends.cudnn.benchmark = True
+    torch.backends.cudnn.deterministic = False # 确保关闭确定性
+    print("✅ cuDNN Benchmark 已启用 (TCN 训练速度最优化)")
 
 # TCN 的参数
 HISTORY_LEN = 144
@@ -29,7 +57,7 @@ BATCH_SIZE = 32
 EPOCHS = 50
 LEARNING_RATE = 1e-3  # 🔴 TCN 对学习率更敏感，我们用 1e-3 开始
 WEIGHT_DECAY = 1e-4
-KERNEL_SIZE = 3  # TCN 卷积核大小
+KERNEL_SIZE = 5  # TCN 卷积核大小
 DROPOUT = 0.3
 # TCN 层级和通道数，例如 4 层，每层 128 通道,修改为七层，为了匹配感受野与历史长度
 TCN_CHANNELS = [128, 128, 128, 128, 128, 128, 128 ]
@@ -144,14 +172,13 @@ def train_tcn():
             if epoch_val_mape < best_mape:
                 best_mape = epoch_val_mape
                 # 🔴 关键：保存为 TCN 模型
-                torch.save(model.state_dict(), "../models/best_tcn.pth")
+                torch.save(model.state_dict(), "../models/best_tcn4.pth")
                 print(f"  ✨ 新的最佳 TCN 模型 (MAPE: {best_mape:.2f}%) 已保存!")
 
-        torch.save(model.state_dict(), "../models/tcn_final.pth")
+        torch.save(model.state_dict(), "../models/tcn_final4.pth")
         print(f"✅ 训练完成！最终 TCN 模型已保存，最佳验证MAPE: {best_mape:.2f}%")
 
         # ... (绘图代码与 train_lstm_improved.py 完全相同，此处省略以保持简洁) ...
-        # ... (但请确保你复制了完整的绘图代码) ...
         plt.figure(figsize=(15, 10))
         plt.subplot(2, 2, 1)
         plt.plot(history['train_loss'], label='Train Loss (Log-Space)')
@@ -202,7 +229,7 @@ def train_tcn():
         plt.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig("../experiments/training_results_tcn2.png")  # 🔴 保存为新图片
+        plt.savefig("../experiments/training_results_tcn4.png")  # 🔴 保存为新图片
         print("✅ TCN 训练结果图已保存。")
 
     except Exception as e:

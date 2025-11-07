@@ -18,7 +18,7 @@ print("Using device:", DEVICE)
 # 模型参数（必须与训练时一致）
 HISTORY_LEN = 144
 PRED_LEN = 6
-TCN_CHANNELS = [128, 128, 128, 128]
+TCN_CHANNELS = [128, 128, 128, 128, 128, 128, 128]
 KERNEL_SIZE = 3
 DROPOUT = 0.3
 SPLIT_RATIO = 0.8  # 与训练时保持一致
