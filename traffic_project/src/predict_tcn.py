@@ -26,13 +26,14 @@ PRED_LEN = 6
 BATCH_SIZE = 32
 # 🔴 关键：TCN 模型参数
 KERNEL_SIZE = 5
-DROPOUT = 0.3
-TCN_CHANNELS = [128, 128, 128, 128, 128, 128, 128]
+DROPOUT = 0.5
+TCN_CHANNELS = [256, 256, 256, 256, 256, 256, 256]
+# TCN_CHANNELS = [128, 128, 128, 128, 128, 128, 128 ]
 
 
 def check_model_files():
     # 🔴 关键：加载 TCN 模型
-    model_path = "../models/best_tcn4.pth"
+    model_path = "../models/best_tcn6.pth"
     if os.path.exists(model_path):
         print(f"✅ 找到模型: {model_path}")
         return model_path
@@ -100,7 +101,7 @@ def plot_predictions(yb_true, yb_pred, pred_len=6):
     plt.grid(True, axis='y', alpha=0.3)
 
     plt.tight_layout()
-    plt.savefig("../experiments/prediction_results_tcn4.png")  # 🔴 保存为新图片
+    plt.savefig("../experiments/prediction_results_tcn6.png")  # 🔴 保存为新图片
     print("✅ TCN 预测结果图已保存。")
 
 

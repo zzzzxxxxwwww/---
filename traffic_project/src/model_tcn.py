@@ -80,7 +80,7 @@ class TCNForecast(nn.Module):
     """
 
     def __init__(self, traffic_feat_dim, time_feat_dim, num_stations,
-                 num_channels=[128, 128, 128, 128, 128, 128, 128], kernel_size=3, dropout=0.3, pred_len=1):
+                 num_channels=[128, 128, 128, 128, 128, 128, 128], kernel_size=5, dropout=0.3, pred_len=1):
         super(TCNForecast, self).__init__()
         self.pred_len = pred_len
         self.num_stations = num_stations

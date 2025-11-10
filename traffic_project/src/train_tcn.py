@@ -8,7 +8,7 @@ from model_tcn import TCNForecast  # 🔴 关键：导入新模型
 import matplotlib.pyplot as plt
 import os
 import numpy as np
-from torch.optim.lr_scheduler import ReduceLROnPlateau
+from torch.optim.lr_scheduler import ReduceLROnPlateau, CosineAnnealingLR
 import random # [!!! 1. 新增导入 !!!]
 
 # ... (中文字体设置代码 保持不变) ...
@@ -58,9 +58,12 @@ EPOCHS = 50
 LEARNING_RATE = 1e-3  # 🔴 TCN 对学习率更敏感，我们用 1e-3 开始
 WEIGHT_DECAY = 1e-4
 KERNEL_SIZE = 5  # TCN 卷积核大小
-DROPOUT = 0.3
+DROPOUT = 0.5
 # TCN 层级和通道数，例如 4 层，每层 128 通道,修改为七层，为了匹配感受野与历史长度
-TCN_CHANNELS = [128, 128, 128, 128, 128, 128, 128 ]
+TCN_CHANNELS = [256, 256, 256, 256, 256, 256, 256 ]
+# TCN_CHANNELS = [128, 128, 128, 128, 128, 128, 128 ]
+# TCN_CHANNELS = [64, 64, 64, 64, 64, 64, 64 ]
+
 # TCN_CHANNELS = [128, 128, 128, 128 ]
 
 
@@ -108,7 +111,11 @@ def train_tcn():
 
         optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE, weight_decay=WEIGHT_DECAY)
         loss_fn = nn.HuberLoss(delta=1.0)  # 仍在对数空间计算 Loss
-        scheduler = ReduceLROnPlateau(optimizer, 'min', factor=0.5, patience=5, verbose=True)
+        # scheduler = ReduceLROnPlateau(optimizer, 'min', factor=0.5, patience=5, verbose=True)  #修改1
+        # 替换为 CosineAnnealingLR
+        # T_max = EPOCHS * len(train_loader) # 按 Step 更新 (最平滑)
+        T_max = EPOCHS  # 按 Epoch 更新 (更简单)
+        scheduler = CosineAnnealingLR(optimizer, T_max=T_max, eta_min=1e-6)  # eta_min 是最小LR
 
         history = {'train_loss': [], 'val_loss': [], 'val_mape': []}
         best_mape = float('inf')
@@ -162,7 +169,8 @@ def train_tcn():
             history['val_loss'].append(epoch_val_loss)
             history['val_mape'].append(epoch_val_mape)
 
-            scheduler.step(epoch_val_loss)
+            # scheduler.step(epoch_val_loss)   #修改2
+            scheduler.step()  # (CosineAnnealing 的用法)
 
             print(f"Epoch {epoch + 1}/{EPOCHS} - "
                   f"Train Loss: {epoch_train_loss:.4f} (Log-Space), "
@@ -172,10 +180,10 @@ def train_tcn():
             if epoch_val_mape < best_mape:
                 best_mape = epoch_val_mape
                 # 🔴 关键：保存为 TCN 模型
-                torch.save(model.state_dict(), "../models/best_tcn4.pth")
+                torch.save(model.state_dict(), "../models/best_tcn6.pth")
                 print(f"  ✨ 新的最佳 TCN 模型 (MAPE: {best_mape:.2f}%) 已保存!")
 
-        torch.save(model.state_dict(), "../models/tcn_final4.pth")
+        torch.save(model.state_dict(), "../models/tcn_final6.pth")
         print(f"✅ 训练完成！最终 TCN 模型已保存，最佳验证MAPE: {best_mape:.2f}%")
 
         # ... (绘图代码与 train_lstm_improved.py 完全相同，此处省略以保持简洁) ...
@@ -229,7 +237,7 @@ def train_tcn():
         plt.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig("../experiments/training_results_tcn4.png")  # 🔴 保存为新图片
+        plt.savefig("../experiments/training_results_tcn6.png")  # 🔴 保存为新图片
         print("✅ TCN 训练结果图已保存。")
 
     except Exception as e:

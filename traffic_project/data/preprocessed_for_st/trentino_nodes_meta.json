@@ -1,0 +1,1117 @@
+[
+  {
+    "node": "Ala",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Albiano",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Aldeno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Amblar",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Andalo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Arco",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Avio",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Baselga di Pin\u00e8",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Bedollo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Bersone",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Besenello",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Bezzecca",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Bieno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Bleggio Inferiore",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Bleggio Superiore",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Bocenago",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Bolbeno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Bondo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Bondone",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Borgo Valsugana",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Bosentino",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Breguzzo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Brentonico",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Bresimo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Brez",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Brione",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Caderzone",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cagn\u00f2",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Calavino",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Calceranica Al Lago",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Caldes",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Caldonazzo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Calliano",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Campitello Di Fassa",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Campodenno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Canal San Bovo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Canazei",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Capriana",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Carano",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Carisolo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Carzano",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Castel Condino",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Castelfondo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Castello Tesino",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Castello-Molina Di Fiemme",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Castelnuovo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cavalese",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cavareno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cavedago",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cavedine",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cavizzana",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cembra",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Centa San Nicol\u00f2",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cimego",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cimone",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cinte Tesino",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cis",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Civezzano",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cles",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cloz",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Commezzadura",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Concei",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Condino",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Coredo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Croviana",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Cunevo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Daiano",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Dambel",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Daone",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Dar\u00e8",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Denno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Dimaro",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Don",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Dorsino",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Drena",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Dro",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Faedo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Fai Della Paganella",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Faver",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Fiav\u00e8",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Fiera Di Primiero",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Fierozzo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Flavon",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Folgaria",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Fondo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Fornace",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Frassilongo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Garniga Terme",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Giovo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Giustino",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Grauno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Grigno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Grumes",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Imer",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Isera",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Ivano-Fracena",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Lardaro",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Lasino",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Lavarone",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Lavis",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Levico Terme",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Lisignago",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Livo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Lomaso",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Lona-Lases",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Luserna",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Malosco",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Mal\u00e8",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Massimeno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Mazzin",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Mezzana",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Mezzano",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Mezzocorona",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Mezzolombardo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Moena",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Molina Di Ledro",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Molveno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Monclassico",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Montagne",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Mori",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Nago-Torbole",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Nanno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Nave San Rocco",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Nogaredo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Nomi",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Novaledo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Ospedaletto",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Ossana",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Padergnone",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Pal\u00f9 del Fersina",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Panchi\u00e0",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Peio",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Pellizzano",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Pelugo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Pergine Valsugana",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Pieve Di Bono",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Pieve Di Ledro",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Pieve Tesino",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Pinzolo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Pomarolo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Pozza Di Fassa",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Praso",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Predazzo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Preore",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Prezzo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Rabbi",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Ragoli",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Rev\u00f2",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Riva Del Garda",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Romallo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Romeno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Roncegno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Ronchi Valsugana",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Roncone",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Ronzo-Chienis",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Ronzone",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Rovereto",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Rover\u00e8 della Luna",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Ruffr\u00e8",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Rumo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Sagron Mis",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Samone",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "San Lorenzo In Banale",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "San Michele all' Adige",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Sant' Orsola Terme",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Sanzeno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Sarnonico",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Scurelle",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Segonzano",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Sfruz",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Siror",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Smarano",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Soraga",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Sover",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Spera",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Spiazzo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Spormaggiore",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Sporminore",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Stenico",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Storo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Strembo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Strigno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Taio",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Tassullo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Telve",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Telve Di Sopra",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Tenna",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Tenno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Terlago",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Terragnolo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Terres",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Terzolas",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Tesero",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Tiarno Di Sopra",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Tiarno Di Sotto",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Tione Di Trento",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Ton",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Tonadico",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Torcegno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Trambileno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Transacqua",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Trento",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Tres",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Tuenno",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Valda",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Valfloriana",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Vallarsa",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Varena",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Vattaro",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Vermiglio",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Verv\u00f2",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Vezzano",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Vignola-Falesina",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Vigo Di Fassa",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Vigo Rendena",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Vigolo Vattaro",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Villa Agnedo",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Villa Lagarina",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Villa Rendena",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Volano",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Zambana",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Ziano Di Fiemme",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "Zuclo",
+    "matched": false,
+    "lon": null
+  }
+]

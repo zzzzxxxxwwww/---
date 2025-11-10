@@ -1,0 +1,442 @@
+[
+  {
+    "node": "ADRIANO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "AFFORI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "ASSIANO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "BAGGIO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "BANDE NERE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "BARONA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "BICOCCA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "BOLDINASCO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "BOSCOINCITTA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "BOVISA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "BOVISASCA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "BRERA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "BRUZZANO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "BUENOS AIRES",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "CALVAIRATE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "CANTALUPA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "CASCINA MERLATA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "CHIARAVALLE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "CIMIANO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "CITTA STUDI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "COMASINA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "CONCA DEL NAVIGLIO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "CONCA FALLATA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "CONCHETTA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "CORSICA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "DE ANGELI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "DEI NAVIGLI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "DELLE ABBAZIE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "DERGANO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "DUOMO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "FARINI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "FATIMA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "FIGINO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "FORLANINI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "FORZE ARMATE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "GHISOLFA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "GIAMBELLINO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "GIARDINI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "GORLA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "GRATOSOGLIO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "GRECO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "GUASTALLA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "IPPODROMI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "ISOLA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "LAMBRATE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "LAMPUGNANO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "LODI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "LODOVICO IL MORO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "LORENTEGGIO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "LORETO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "MACIACHINI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "MAGENTA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "MAGGIORE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "MONCUCCO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "MONLUE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "MORIVIONE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "MUGGIANO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "MUSOCCO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "NIGUARDA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "ORTOMERCATO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "PADOVA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "PAGANO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "PARCO FORLANINI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "PARCO NORD",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "PARCO SEMPIONE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "PONTE SEVESO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "PORTA GARIBALDI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "PORTA GENOVA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "PORTA LODOVICA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "PORTA MAGENTA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "PORTELLO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "PTA ROMANA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "QT 8",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "QUARTO CAGNINO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "QUINTO ROMANO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "QUINTOSOLE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "RONCHETTO DELLE RANE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "ROSERIO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "SAN SIRO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "SANTA GIULIA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "SARPI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "SCALO ROMANA",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "STEPHENSON",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "TIBALDI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "TRE TORRI",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "TRENNO",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "TRIULZO SUPERIORE",
+    "matched": false,
+    "lon": null
+  },
+  {
+    "node": "XXII MARZO",
+    "matched": false,
+    "lon": null
+  }
+]
